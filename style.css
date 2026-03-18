@@ -8,7 +8,7 @@
 body {
   font-family: 'Noto Sans TC', sans-serif;
   /* 練習：把背景色改成你喜歡的顏色 */
-  background-color: #f0f4f8;
+  background-color: #fdf6ee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ body {
 
 header {
   /* 練習：把標題列顏色從藍色改成其他顏色 */
-  background: #4f8ef7;
+  background: #e8723a;
   color: white;
   padding: 20px 24px;
 }
@@ -52,15 +52,15 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 }
 
 .message.bot {
-  background: #f0f4f8;
-  color: #333;
+  background: #fff3e0;
+  color: #5d4037;
   align-self: flex-start;
   border-bottom-left-radius: 4px;
 }
 
 .message.user {
   /* 練習：把使用者訊息顏色從綠色改成你喜歡的顏色 */
-  background: #4caf87;
+  background: #d84315;
   color: white;
   align-self: flex-end;
   border-bottom-right-radius: 4px;
@@ -70,27 +70,27 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
   display: flex;
   padding: 16px;
   gap: 10px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #f5d6c0;
 }
 
 .input-area input {
   flex: 1;
   padding: 10px 14px;
-  border: 1px solid #ddd;
+  border: 1px solid #e0c4a8;
   border-radius: 8px;
   font-size: 14px;
   outline: none;
 }
 
 .input-area input:focus {
-  border-color: #4f8ef7;
+  border-color: #e8723a;
 }
 
 .input-area button {
   /* 練習：把按鈕顏色改成你喜歡的顏色
      conflict-a 分支：改成 #4f8ef7（藍色）
      conflict-b 分支：改成 #e84393（粉色）  */
-  background: #4f8ef7;
+  background: #e8723a;
   color: white;
   border: none;
   padding: 10px 20px;
