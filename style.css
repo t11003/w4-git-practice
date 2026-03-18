@@ -3,12 +3,19 @@
    學生練習：修改顏色、字體大小等
    ============================ */
 
+/* 日系傳統色配色
+   背景：生成り色 (unbleached)  #f7f3ee
+   主色：漆黒 (urushi-black)    #2b2118
+   強調：朱色 (vermillion)      #b5451b
+   配色：藕色 (lotus-pink)      #8e3a59
+   訊息：薄茶 (pale tea)        #ede8e0 */
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'Noto Sans TC', sans-serif;
   /* 練習：把背景色改成你喜歡的顏色 */
-  background-color: #f0f4f8;
+  background-color: #f7f3ee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,23 +23,24 @@ body {
 }
 
 .container {
-  background: white;
+  background: #fdfaf6;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 24px rgba(43,33,24,0.13);
   width: 480px;
   max-width: 95vw;
   overflow: hidden;
+  border: 1px solid #e0d6cc;
 }
 
 header {
   /* 練習：把標題列顏色從藍色改成其他顏色 */
-  background: #4f8ef7;
-  color: white;
+  background: #2b2118;
+  color: #f7f3ee;
   padding: 20px 24px;
 }
 
 header h1 { font-size: 20px; }
-header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+header .subtitle { font-size: 13px; opacity: 0.7; margin-top: 4px; color: #d4b89a; }
 
 #chat-box {
   height: 360px;
@@ -41,6 +49,7 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background-color: #f7f3ee;
 }
 
 .message {
@@ -52,16 +61,17 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 }
 
 .message.bot {
-  background: #f0f4f8;
-  color: #333;
+  background: #ede8e0;
+  color: #2b2118;
   align-self: flex-start;
   border-bottom-left-radius: 4px;
+  border: 1px solid #d9d0c5;
 }
 
 .message.user {
   /* 練習：把使用者訊息顏色從綠色改成你喜歡的顏色 */
-  background: #4caf87;
-  color: white;
+  background: #b5451b;
+  color: #fdfaf6;
   align-self: flex-end;
   border-bottom-right-radius: 4px;
 }
@@ -70,28 +80,31 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
   display: flex;
   padding: 16px;
   gap: 10px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e0d6cc;
+  background: #fdfaf6;
 }
 
 .input-area input {
   flex: 1;
   padding: 10px 14px;
-  border: 1px solid #ddd;
+  border: 1px solid #d0c8be;
   border-radius: 8px;
   font-size: 14px;
   outline: none;
+  background: #f7f3ee;
+  color: #2b2118;
 }
 
 .input-area input:focus {
-  border-color: #4f8ef7;
+  border-color: #8e3a59;
 }
 
 .input-area button {
   /* 練習：把按鈕顏色改成你喜歡的顏色
      conflict-a 分支：改成 #4f8ef7（藍色）
      conflict-b 分支：改成 #e84393（粉色）  */
-  background: #4f8ef7;
-  color: white;
+  background: #8e3a59;
+  color: #fdfaf6;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
