@@ -100,11 +100,8 @@ header .subtitle { font-size: 13px; opacity: 0.7; margin-top: 4px; color: #d4b89
 }
 
 .input-area button {
-  /* 練習：把按鈕顏色改成你喜歡的顏色
-     conflict-a 分支：改成 #4f8ef7（藍色）
-     conflict-b 分支：改成 #e84393（粉色）  */
-  background: #8e3a59;
-  color: #fdfaf6;
+  background: #1a73e8;  /* conflict-a：深藍色 */
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
