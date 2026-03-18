@@ -87,10 +87,7 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 }
 
 .input-area button {
-  /* 練習：把按鈕顏色改成你喜歡的顏色
-     conflict-a 分支：改成 #4f8ef7（藍色）
-     conflict-b 分支：改成 #e84393（粉色）  */
-  background: #4f8ef7;
+  background: #1a73e8;  /* conflict-a：深藍色 */
   color: white;
   border: none;
   padding: 10px 20px;
