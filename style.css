@@ -102,3 +102,22 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 .input-area button:hover {
   opacity: 0.85;
 }
+
+/* ===== feature/dark-mode 新增 ===== */
+.dark-toggle {
+  margin-top: 8px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+body.dark { background-color: #1e1e2e; }
+body.dark .container { background: #313244; color: #cdd6f4; }
+body.dark header { background: #1e1e2e; }
+body.dark .message.bot { background: #45475a; color: #cdd6f4; }
+body.dark .input-area { border-top-color: #45475a; }
+body.dark .input-area input { background: #45475a; color: #cdd6f4; border-color: #585b70; }
