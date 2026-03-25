@@ -37,7 +37,14 @@ git checkout main
 ```
 
 **思考：dark-mode 分支修改了哪些檔案的哪些地方？**
-
+**1.index.html:
+  在 header 區塊中新增了一個按鈕，點擊時會觸發 body 的 dark class 切換**
+**2.style.css:
+  按鈕樣式 (.dark-toggle)：設定了切換按鈕的外觀（透明背景、白色文字、圓角等）。
+  深色色彩定義 (body.dark)：
+    將背景改為深灰色 (#1e1e2e)。
+    調整對話框容器 (.container) 和標題列 (header) 的底色。
+    修改 Bot 訊息與輸入框的顏色，使其在深色背景下易於閱讀。**
 ---
 
 ## 練習二：Merge feature 分支

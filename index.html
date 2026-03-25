@@ -1,33 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>W4 練習 Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="container">
     <header>
-      <h1>🤖 練習用 Chatbot</h1>
-      <!-- 練習一：把標題改成你們組的名字 -->
-      <p class="subtitle">W4 Git Branch 練習</p>
+      <div class="header-left">
+        <div class="avatar">🤖</div>
+        <div class="header-info">
+          <h1>練習用 Chatbot</h1>
+          <p class="subtitle"><span class="status-dot"></span>第十組</p>
+        </div>
+      </div>
+      <button class="dark-toggle" onclick="document.body.classList.toggle('dark')" title="切換深色模式">
+        <span class="toggle-icon">🌙</span>
+      </button>
     </header>
 
     <div id="chat-box">
-      <div class="message bot">
-        嗨！我是練習用的 Chatbot，今天我們要學 Git Branch 🌿
+      <div class="message bot fade-in">
+        <div class="msg-avatar">🤖</div>
+        <div class="msg-bubble">
+          嗨！我是練習用的 Chatbot，今天我們要學 Git Branch 🌿
+          <span class="msg-time">剛才</span>
+        </div>
       </div>
     </div>
 
+    <div class="quick-replies">
+      <button class="qr-btn" onclick="sendQuickReply('我想學 Git')">我想學 Git</button>
+      <button class="qr-btn" onclick="sendQuickReply('你是誰？')">你是誰？</button>
+      <button class="qr-btn clear-btn" onclick="clearChat()">清除對話</button>
+    </div>
+
     <div class="input-area">
-      <input id="user-input" type="text" placeholder="輸入訊息...">
-      <!-- 練習二：把按鈕文字改成你喜歡的文字 -->
-      <button onclick="sendMessage()">送出</button>
+      <input id="user-input" type="text" placeholder="輸入訊息..." autocomplete="off">
+      <button id="send-btn" onclick="sendMessage()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
     </div>
   </div>
 
   <script>
+    function sendQuickReply(text) {
+      document.getElementById('user-input').value = text;
+      sendMessage();
+    }
+
+    function clearChat() {
+      const chatBox = document.getElementById('chat-box');
+      chatBox.innerHTML = `
+        <div class="message bot fade-in">
+          <div class="msg-avatar">🤖</div>
+          <div class="msg-bubble">
+            對話紀錄已清除！有什麼我可以幫忙的嗎？
+            <span class="msg-time">${getTimeStr()}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function getTimeStr() {
+      const now = new Date();
+      return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+    }
+
     function sendMessage() {
       const input = document.getElementById('user-input');
       const chatBox = document.getElementById('chat-box');
@@ -35,27 +84,54 @@
 
       if (!text) return;
 
-      // 顯示使用者訊息
+      // 使用者訊息
       const userDiv = document.createElement('div');
-      userDiv.className = 'message user';
-      userDiv.textContent = text;
+      userDiv.className = 'message user fade-in';
+      userDiv.innerHTML = `
+        <div class="msg-bubble">
+          ${text}
+          <span class="msg-time">${getTimeStr()}</span>
+        </div>
+      `;
       chatBox.appendChild(userDiv);
-
-      // 模擬 bot 回覆
-      const botDiv = document.createElement('div');
-      botDiv.className = 'message bot';
-      botDiv.textContent = `你說了「${text}」，我收到了！`;
-      chatBox.appendChild(botDiv);
-
       input.value = '';
       chatBox.scrollTop = chatBox.scrollHeight;
+
+      // 打字動畫
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'message bot fade-in';
+      typingDiv.innerHTML = `
+        <div class="msg-avatar">🤖</div>
+        <div class="msg-bubble typing">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      `;
+      chatBox.appendChild(typingDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // 延遲顯示回覆
+      setTimeout(() => {
+        typingDiv.remove();
+        const botDiv = document.createElement('div');
+        botDiv.className = 'message bot fade-in';
+        botDiv.innerHTML = `
+          <div class="msg-avatar">🤖</div>
+          <div class="msg-bubble">
+            你說了「${text}」，我收到了！
+            <span class="msg-time">${getTimeStr()}</span>
+          </div>
+        `;
+        chatBox.appendChild(botDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 800);
     }
 
     // 按 Enter 也能送出
-    document.getElementById('user-input').addEventListener('keypress', function(e) {
+    document.getElementById('user-input').addEventListener('keypress', function (e) {
       if (e.key === 'Enter') sendMessage();
     });
   </script>
 
 </body>
+
 </html>
